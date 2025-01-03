@@ -96,6 +96,15 @@ if [ ! -d "$TPM_HOME" ]; then
     git clone https://github.com/tmux-plugins/tpm.git "$TPM_HOME"
 fi
 
+if [ ! -f ~/.vim/autoload/plug.vim ]; then
+    echo "Installing vim-plug..."
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    # Run PlugInstall non-interactively
+    vim +PlugInstall +qall
+fi
+
 # ----------------------
 # ZSH Options
 # ----------------------
